@@ -9,3 +9,5 @@ There's also a little script included that will use Gnuplot to plot a TSV file a
 ```
 ./generate_plot_from_tsv input.tsv output.jpg
 ```
+
+Note that the plotting script assumes that [Gnuplot](http://www.gnuplot.info/) is installed and available on your machine.  It should already be installed on the ENGR servers, if you're working there.
