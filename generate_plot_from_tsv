@@ -1,4 +1,4 @@
-#!/usr/bin/env gnuplot -c
+#!/usr/bin/env bash
 #
 # This is a simple script that will plot a TSV file as a line graph using
 # gnuplot.  You can run it like so, passing the name of the input TSV file
@@ -11,11 +11,11 @@
 #
 # Show usage information if arguments aren't present.
 #
-if (strlen(ARG1) == 0) print "Usage: " . ARG0 . " input.tsv output.jpg"; exit
-if (strlen(ARG2) == 0) print "Usage: " . ARG0 . " input.tsv output.jpg"; exit
+if [ "$#" -lt 2 ]; then
+    echo "Usage: ${0} input.tsv output.jpg"
+    exit 1;
+fi
 
-set terminal jpeg
-set output ARG2
-set style data lines
 
-plot ARG1
+
+gnuplot -e "set terminal jpeg;set output '${2}'; set style data lines;plot '${1}';"
